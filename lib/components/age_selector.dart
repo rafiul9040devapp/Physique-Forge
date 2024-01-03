@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:physique_forge/components/counter_button.dart';
 
-class WeightSelector extends StatelessWidget {
-  const WeightSelector({super.key});
+import 'counter_button.dart';
+
+class AgeSelector extends StatelessWidget {
+  const AgeSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
