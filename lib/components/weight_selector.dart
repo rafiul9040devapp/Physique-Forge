@@ -8,7 +8,6 @@ class WeightSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.h,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -26,7 +25,6 @@ class WeightSelector extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -39,14 +37,12 @@ class WeightSelector extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 10.h,
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CounterButton(onPressed: () {}, iconData: Icons.add),
-              CounterButton(onPressed: () {}, iconData: Icons.minimize),
+              SizedBox(width: 25,),
+              CounterButton(onPressed: () {}, iconData: Icons.remove),
             ],
           ),
         ],

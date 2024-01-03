@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:physique_forge/components/age_selector.dart';
 import 'package:physique_forge/components/height_selector.dart';
 import 'package:physique_forge/components/primary_button.dart';
 import 'package:physique_forge/components/theme_changer_button.dart';
@@ -45,28 +46,41 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20.h),
               Row(
                 children: [
-                  const PrimaryButton(iconData: Icons.male, buttonName: 'MALE'),
+                  PrimaryButton(
+                      onPressed: () {},
+                      iconData: Icons.male,
+                      buttonName: 'MALE'),
                   SizedBox(width: 15.w),
-                  const PrimaryButton(
-                      iconData: Icons.female, buttonName: 'Female')
+                  PrimaryButton(
+                      onPressed: () {},
+                      iconData: Icons.female,
+                      buttonName: 'Female')
                 ],
               ),
               SizedBox(height: 20.h),
-              const Expanded(
+               const Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     HeightSelector(),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          WeightSelector(),
-                        ],
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        WeightSelector(),
+                        AgeSelector(),
+                      ],
                     ),
                   ],
                 ),
               ),
+              SizedBox(height: 20.h),
+              SizedBox(
+                height: 50.h,
+                child: PrimaryButton(
+                    onPressed: () {},
+                    iconData: Icons.done,
+                    buttonName: 'Lets Go'),
+              )
             ],
           ),
         ),

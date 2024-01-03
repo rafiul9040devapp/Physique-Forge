@@ -9,7 +9,6 @@ class AgeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.h,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -20,14 +19,13 @@ class AgeSelector extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Weight',
+                'AGE',
                 style: TextStyle(
                     color: Theme.of(context).colorScheme.onSecondaryContainer,
                     fontSize: 18.sp),
               ),
             ],
           ),
-          SizedBox(height: 10.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -40,14 +38,12 @@ class AgeSelector extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 10.h,
-          ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               CounterButton(onPressed: () {}, iconData: Icons.add),
-              CounterButton(onPressed: () {}, iconData: Icons.minimize),
+              SizedBox(width: 25),
+              CounterButton(onPressed: () {}, iconData: Icons.remove),
             ],
           ),
         ],
