@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:physique_forge/controller/bmi_controller.dart';
 
 import 'counter_button.dart';
 
@@ -8,6 +10,8 @@ class AgeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BMIController bmiController = Get.put(BMIController());
+
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -26,24 +30,36 @@ class AgeSelector extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '45',
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSecondaryContainer,
-                    fontSize: 70.sp,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${bmiController.age.value}',
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      fontSize: 70.sp,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CounterButton(onPressed: () {}, iconData: Icons.add),
-              SizedBox(width: 25),
-              CounterButton(onPressed: () {}, iconData: Icons.remove),
+              CounterButton(
+                  onPressed: () {
+                    bmiController.age.value++;
+                  },
+                  iconData: Icons.add),
+              SizedBox(width: 25.w),
+              CounterButton(
+                  onPressed: () {
+                    if (bmiController.age.value > 1) {
+                      bmiController.age.value--;
+                    }
+                  },
+                  iconData: Icons.remove),
             ],
           ),
         ],

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:physique_forge/components/counter_button.dart';
+import 'package:physique_forge/controller/bmi_controller.dart';
 
 class WeightSelector extends StatelessWidget {
   const WeightSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
+    BMIController bmiController = Get.put(BMIController());
+
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -25,24 +29,36 @@ class WeightSelector extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '45',
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSecondaryContainer,
-                    fontSize: 70.sp,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${bmiController.weight.value}',
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      fontSize: 70.sp,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CounterButton(onPressed: () {}, iconData: Icons.add),
-              SizedBox(width: 25,),
-              CounterButton(onPressed: () {}, iconData: Icons.remove),
+              CounterButton(
+                  onPressed: () {
+                    bmiController.weight.value++;
+                  },
+                  iconData: Icons.add),
+              SizedBox(width: 25.w),
+              CounterButton(
+                  onPressed: () {
+                    if (bmiController.weight.value > 1) {
+                      bmiController.weight.value--;
+                    }
+                  },
+                  iconData: Icons.remove),
             ],
           ),
         ],

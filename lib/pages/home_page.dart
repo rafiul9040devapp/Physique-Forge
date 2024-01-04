@@ -6,6 +6,7 @@ import 'package:physique_forge/components/height_selector.dart';
 import 'package:physique_forge/components/primary_button.dart';
 import 'package:physique_forge/components/theme_changer_button.dart';
 import 'package:physique_forge/components/weight_selector.dart';
+import 'package:physique_forge/controller/bmi_controller.dart';
 import 'package:physique_forge/controller/theme_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeController themeController = Get.put(ThemeController());
+    BMIController bmiController = Get.put(BMIController());
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -47,28 +48,35 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   PrimaryButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        bmiController.genderHandler('MALE');
+                      },
                       iconData: Icons.male,
                       buttonName: 'MALE'),
                   SizedBox(width: 15.w),
                   PrimaryButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        bmiController.genderHandler('FEMALE');
+                      },
                       iconData: Icons.female,
-                      buttonName: 'Female')
+                      buttonName: 'FEMALE')
                 ],
               ),
               SizedBox(height: 20.h),
-               const Expanded(
+               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     HeightSelector(),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        WeightSelector(),
-                        AgeSelector(),
-                      ],
+                    SizedBox(width: 20.w),
+                    Flexible(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          WeightSelector(),
+                          AgeSelector(),
+                        ],
+                      ),
                     ),
                   ],
                 ),
