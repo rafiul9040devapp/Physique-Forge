@@ -9,6 +9,7 @@ import 'package:physique_forge/components/theme_changer_button.dart';
 import 'package:physique_forge/components/weight_selector.dart';
 import 'package:physique_forge/controller/bmi_controller.dart';
 import 'package:physique_forge/controller/theme_controller.dart';
+import 'package:physique_forge/pages/result_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
                   Text(
                     'Welcome 😊',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      color: Theme.of(context).colorScheme.onBackground,
                     ),
                   ),
                 ],
@@ -64,7 +65,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20.h),
-               const Expanded(
+              const Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -86,8 +87,11 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 50.h,
                 child: ReactButton(
-                    onPressed: () {},
-                    iconData: Icons.done_all_rounded ,
+                    onPressed: () {
+                      bmiController.calculateBMI();
+                      Get.to(ResultPage());
+                    },
+                    iconData: Icons.done_all_rounded,
                     buttonName: 'Lets Go'),
               )
             ],
