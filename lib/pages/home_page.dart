@@ -8,7 +8,6 @@ import 'package:physique_forge/components/react_button.dart';
 import 'package:physique_forge/components/theme_changer_button.dart';
 import 'package:physique_forge/components/weight_selector.dart';
 import 'package:physique_forge/controller/bmi_controller.dart';
-import 'package:physique_forge/controller/theme_controller.dart';
 import 'package:physique_forge/pages/result_page.dart';
 
 class HomePage extends StatelessWidget {
