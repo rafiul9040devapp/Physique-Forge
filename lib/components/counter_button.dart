@@ -13,6 +13,7 @@ class CounterButton extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: Container(
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(10),

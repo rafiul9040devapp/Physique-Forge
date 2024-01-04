@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:physique_forge/components/age_selector.dart';
 import 'package:physique_forge/components/height_selector.dart';
 import 'package:physique_forge/components/primary_button.dart';
+import 'package:physique_forge/components/react_button.dart';
 import 'package:physique_forge/components/theme_changer_button.dart';
 import 'package:physique_forge/components/weight_selector.dart';
 import 'package:physique_forge/controller/bmi_controller.dart';
@@ -63,12 +64,12 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20.h),
-               Expanded(
+               const Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     HeightSelector(),
-                    SizedBox(width: 20.w),
+                    SizedBox(width: 20),
                     Flexible(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,9 +85,9 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20.h),
               SizedBox(
                 height: 50.h,
-                child: PrimaryButton(
+                child: ReactButton(
                     onPressed: () {},
-                    iconData: Icons.done,
+                    iconData: Icons.done_all_rounded ,
                     buttonName: 'Lets Go'),
               )
             ],
