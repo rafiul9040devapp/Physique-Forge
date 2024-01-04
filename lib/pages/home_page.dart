@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20.h),
-              const Expanded(
+              const Flexible(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
                 child: ReactButton(
                     onPressed: () {
                       bmiController.calculateBMI();
-                      Get.to(ResultPage());
+                      Get.to(const ResultPage());
                     },
                     iconData: Icons.done_all_rounded,
                     buttonName: 'Lets Go'),
